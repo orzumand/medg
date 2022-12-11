@@ -15,24 +15,10 @@ import {
 } from "./style";
 
 const FAQ = () => {
-  const [btnState, setBtnState] = useState(false);
-  const [btn2State, setBtn2State] = useState(false);
-  const [btn3State, setBtn3State] = useState(false);
-  const [btn4State, setBtn4State] = useState(false);
+  const [btnState, setBtnState] = useState("");
+
   const handleClick = (num) => {
-    if (num === 1) {
-      setBtnState(!btnState);
-      console.log(1);
-    } else if (num === 2) {
-      setBtn2State(!btn2State);
-      console.log(2);
-    } else if (num === 3) {
-      setBtn3State(!btn3State);
-      console.log(3);
-    } else if (num === 4) {
-      setBtn4State(!btn4State);
-      console.log(4);
-    }
+    setBtnState(num);
   };
 
   return (
@@ -42,8 +28,8 @@ const FAQ = () => {
         <Subtitle>Нужны ответы? Найдите их здесь...</Subtitle>
         <Akkardion>
           <Item
-            className={btnState ? "active" : ""}
-            onClick={() => handleClick(1)}
+            className={btnState === 1 ? "active" : ""}
+            onClick={() => handleClick(btnState === 1 ? 0 : 1)}
           >
             <Question>
               {btnState ? <Dote /> : ""}
@@ -53,7 +39,7 @@ const FAQ = () => {
                 запись?
               </Title>
 
-              <Icon className={btnState ? "active" : ""} />
+              <Icon className={btnState === 1 ? "active" : ""} />
             </Question>
             <Answer>
               Записаться можно следующим образом:
@@ -65,16 +51,16 @@ const FAQ = () => {
             </Answer>
           </Item>
           <Item
-            className={btn2State ? "active" : ""}
-            onClick={() => handleClick(2)}
+            className={btnState === 2 ? "active" : ""}
+            onClick={() => handleClick(btnState === 2 ? 0 : 2)}
           >
             <Question>
-              {btn2State ? <Dote /> : ""}
+              {btnState ? <Dote /> : ""}
               <Title>
                 Как записаться к узкому специалисту в вашей клинике?
               </Title>
 
-              <Icon className={btn2State ? "active" : ""} />
+              <Icon className={btnState === 2 ? "active" : ""} />
             </Question>
             <Answer>
               Записаться можно следующим образом:
@@ -86,17 +72,17 @@ const FAQ = () => {
             </Answer>
           </Item>
           <Item
-            className={btn3State ? "active" : ""}
-            onClick={() => handleClick(3)}
+            className={btnState === 3 ? "active" : ""}
+            onClick={() => handleClick(btnState === 3 ? 0 : 3)}
           >
             <Question>
-              {btn3State ? <Dote /> : ""}
+              {btnState ? <Dote /> : ""}
               <Title>
                 Подскажите, есть ли при больнице платный стационар в
                 терапевтическом отделении? И, если есть, то как в него попасть?
               </Title>
 
-              <Icon className={btn3State ? "active" : ""} />
+              <Icon className={btnState === 3 ? "active" : ""} />
             </Question>
             <Answer>
               Записаться можно следующим образом:
@@ -108,17 +94,17 @@ const FAQ = () => {
             </Answer>
           </Item>
           <Item
-            className={btn4State ? "active" : ""}
-            onClick={() => handleClick(4)}
+            className={btnState === 4 ? "active" : ""}
+            onClick={() => handleClick(btnState === 4 ? 0 : 4)}
           >
             <Question>
-              {btn4State ? <Dote /> : ""}
+              {btnState ? <Dote /> : ""}
               <Title>
                 Как отменить прежнюю запись к врачу, если я выбрала другое
                 время?
               </Title>
 
-              <Icon className={btn4State ? "active" : ""} />
+              <Icon className={btnState === 4 ? "active" : ""} />
             </Question>
             <Answer>
               Записаться можно следующим образом:
